@@ -39,4 +39,31 @@ public class sezar_şifreleme {
 
 		 String k=a.toUpperCase();//HEPSİNİ BÜYÜKHARF YAPMAK İÇİN
 		System.out.println("\nGirdiğinizin şifrelenmiş hali:"+encrypted(k,ks));
+		System.out.print("Şifrenin çözülmüş hali:"+decrypt(encrypt(k,ks),ks));
+	}
+	public static String decrypt(String encrypt,int key) {
+		String cipher="";
+		String sade="";
+		String alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		for(int i=0;i<26;i++) {
+		   cipher+= alphabet.charAt(i);
+		}
+			System.out.println(cipher);
+			
+		int uzunluk=encrypt.length();
+		for(int i=0;i<uzunluk;i++) {
+			for(int j=0;j<26;j++) {
+				if(encrypt.charAt(i)==alphabet.charAt(j)) {
+					sade+=alphabet.charAt((char)(j-key+26)%26);
+					
+					
+				}
+					
+						
+					}
+				}
+			
+		
+		return sade.toString();
+	}
 	}
